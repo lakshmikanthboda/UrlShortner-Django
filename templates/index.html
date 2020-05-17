@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>The Big Picture - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/the-big-picture.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
+    <div class="container">
+      <a class="navbar-brand" href="#">Url Shortner</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+            <a class="nav-link" href="#">Copyright © 2020
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="https://github.com/lakshmikanthboda">Lakshmikanth Boda
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <center>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <h1 class="mt-5">Yours Url Shortner</h1>
+          <b> Short thing  is always better to share and remember.</b>
+        </div>
+      </div>
+    </div>
+  </section></center>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <center>
+    <form method="POST" action="/"> {% csrf_token %}
+    <div class="container">
+    <h2>Hello User</h2>
+      <div class="input-group mb-3">
+  <input type="text" name="lurl" class="form-control" placeholder="Long Url" aria-label="Recipient's username" aria-describedby="basic-addon2">
+  <div class="input-group-append">
+    <button class="btn btn-outline-success" type="submit" id="button-addon2"><b>Short</b></button>
+  </div>
+</div>
+      </div>
+    </form>
+  </center>
+  {% if error %}
+  <center>
+    <div class="alert alert-danger" role="alert">
+  {{message}}
+</div>
+  </center>
+  {% endif %}
+  {% if stat %}
+  <center>
+    <h4>Short Url</h4><h5>{{surl}}</h5>
+    <h4>long Url</h4><h5>{{lurl}}</h5>
+  <h4>Views</h4><h5>{{views}}</h5>
+  </center>
+  {% endif %}
+
+  {% if success %}
+
+  <center>
+      <div class="alert alert-success" role="alert">
+      Short Url :- {{url}}
+
+</div>
+          <div class="alert alert-warning" role="alert">
+      Statistics :- {{iurl}}
+
+</div>
+    <div class="container">
+    <!-- AddToAny BEGIN -->
+<!-- AddToAny BEGIN -->
+<div>
+<a href="https://www.addtoany.com/share#url={{url}}&amp;title=" target="_blank"><img src="https://static.addtoany.com/buttons/a2a.svg" width="32" height="32" style="background-color:royalblue"></a>
+<a href="https://www.addtoany.com/add_to/facebook?linkurl={{url}}&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/facebook.svg" width="32" height="32" style="background-color:royalblue"></a>
+<a href="https://www.addtoany.com/add_to/twitter?linkurl={{url}}&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/twitter.svg" width="32" height="32" style="background-color:royalblue"></a>
+<a href="https://www.addtoany.com/add_to/email?linkurl={{url}}&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/email.svg" width="32" height="32" style="background-color:royalblue"></a>
+<a href="https://www.addtoany.com/add_to/whatsapp?linkurl={{url}}&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/whatsapp.svg" width="32" height="32" style="background-color:royalblue"></a>
+<a href="https://www.addtoany.com/add_to/telegram?linkurl={{url}}&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/telegram.svg" width="32" height="32" style="background-color:royalblue"></a>
+<a href="https://www.addtoany.com/add_to/copy_link?linkurl={{url}}&amp;linkname=" target="_blank"><img src="https://static.addtoany.com/buttons/link.svg" width="32" height="32" style="background-color:royalblue"></a>
+</div>
+<!-- AddToAny END -->
+</div>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+  </center>
+  {% endif %}
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+
+</body>
+
+</html>
